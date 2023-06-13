@@ -6,10 +6,27 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from fuzzywuzzy import fuzz
+from collections import Counter
 pd.set_option('display.max_columns', None)
+
+
+
+
 
 # Load data
 def load_data(products_dir, reviews_dir):
+
+    # Finding the best matching value in Top2_Categories
+    def categorize(value):
+        scores = [fuzz.ratio(value, category) for category in top_categories]
+        max_score = max(scores)
+        max_score_index = scores.index(max_score)
+
+        if max_score > 80:
+            return top_categories[max_score_index]
+        else:
+            return 'Other'
 
     #  Load products data
     all_products_tsv_list = os.listdir(products_dir)
@@ -21,7 +38,9 @@ def load_data(products_dir, reviews_dir):
             products_data = pd.concat([products_data, single_data], ignore_index=True)
 
     # Resolving spelling errors in the dataset and check if there are only two types
-    products_data['category'] = products_data['category'].replace('Ktchen', 'Kitchen')
+    top_categories = Counter(products_data['category']).most_common(2)
+    top_categories = [category for category, count in top_categories]
+    products_data['category'] = products_data['category'].apply(categorize)
     print(products_data['category'].value_counts())
 
     #  Load reviews data
