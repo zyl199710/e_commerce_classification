@@ -6,7 +6,7 @@ Python (Pandas, Sklearn, Fuzzywuzzy)
 
 ## Dataset
 
-The [dataset](https://surfdrive.surf.nl/files/index.php/s/LDwpIdG7HHkQiOs) contains two kinds of input files with tab-separated data.
+The small [dataset](https://surfdrive.surf.nl/files/index.php/s/LDwpIdG7HHkQiOs) is from an e-commerce platform, which contains products from two categories: Kitchen and Jewelry.
 
 ## Overview
 
