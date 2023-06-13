@@ -2,7 +2,7 @@
 
 ## Implement
 
-Python (Pandas, Sklearn)
+Python (Pandas, Sklearn, Fuzzywuzzy)
 
 ## Dataset
 
