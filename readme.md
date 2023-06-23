@@ -10,7 +10,7 @@ The small [dataset](https://surfdrive.surf.nl/files/index.php/s/LDwpIdG7HHkQiOs)
 
 ## Overview
 
-- To address the problem of category data anomalies in the Projects dataset [*(Ktchen)*](./dataset/products/products-data-3.tsv). I designed the program to automate the identification and modification of anomalous data [*(line 40)*](./main.py). Specifically, I first identify the multiple values in the Category column, then match the outliers with their similarity, and finally convert the outliers to the most similar data.
+- To address the problem of category data anomalies in the Projects dataset [*(Ktchen)*](./dataset/products/products-data-3.tsv). I designed the program to automate the identification and modification of anomalous data [*(line 40)*](./main.py). Specifically, I first identify the most values in the Category column, then match the outliers with their similarity, and finally convert the outliers to the most similar data.
 
 - To solve the problem of incorrect column order in the reviews dataset [*(review-2.tsv)*](./dataset/reviews/reviews-2.tsv), I choose to directly replace the order of two columns when inputting data [*(line 51)*](./main.py). The reason I did this is that the problem is easier to detect in real scenarios, so it saves computational costs to replace them directly and manually.
 
